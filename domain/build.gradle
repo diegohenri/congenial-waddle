@@ -1,0 +1,23 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.4.32'
+    id 'application'
+}
+
+application {
+    group 'com.vibbra.timesheet.domain'
+    version '0.0.1-SNAPSHOT'
+    sourceCompatibility = '11'
+}
+
+compileKotlin.kotlinOptions {
+    freeCompilerArgs += '-Xjsr305=strict'
+    jvmTarget = '11'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+}
