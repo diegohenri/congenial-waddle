@@ -1,9 +1,9 @@
 package com.vibbra.timesheet.app.security.jwt.filter
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.vibbra.timesheet.app.user.entity.UserAuthenticationWrapper
 import com.vibbra.timesheet.app.security.authentication.response.AuthenticationResponse
 import com.vibbra.timesheet.app.user.entity.Credentials
+import com.vibbra.timesheet.app.user.entity.UserAuthenticationWrapper
 import com.vibbra.timesheet.app.user.entrypoint.rest.dto.response.UserResponse
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
@@ -16,6 +16,7 @@ import java.util.*
 import javax.servlet.FilterChain
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
+
 
 class JWTAuthenticationFilter(
     private val authManager: AuthenticationManager
@@ -59,7 +60,7 @@ class JWTAuthenticationFilter(
                 updatedAt = a.updatedAt
             )
         )
-        response.addHeader("Authorization", "Bearer $token")
+
         response.contentType = "application/json"
         response.writer.write(ObjectMapper().writeValueAsString(authenticationResponse))
         response.writer.flush()
