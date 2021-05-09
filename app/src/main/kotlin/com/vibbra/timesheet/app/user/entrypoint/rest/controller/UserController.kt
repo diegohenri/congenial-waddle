@@ -1,8 +1,8 @@
-package com.vibbra.timesheet.app.entrypoint.rest.user.controller
+package com.vibbra.timesheet.app.user.entrypoint.rest.controller
 
-import com.vibbra.timesheet.app.converter.user.UserConverter
-import com.vibbra.timesheet.app.entrypoint.rest.user.dto.request.CreateUserRequest
-import com.vibbra.timesheet.app.entrypoint.rest.user.dto.response.UserResponse
+import com.vibbra.timesheet.app.user.converter.UserConverter
+import com.vibbra.timesheet.app.user.entrypoint.rest.dto.request.CreateUserRequest
+import com.vibbra.timesheet.app.user.entrypoint.rest.dto.response.UserResponse
 import com.vibbra.timesheet.domain.user.usecase.CreateUserUseCase
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*

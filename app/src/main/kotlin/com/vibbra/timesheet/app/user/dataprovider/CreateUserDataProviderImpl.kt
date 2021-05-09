@@ -1,6 +1,6 @@
 package com.vibbra.timesheet.app.user.dataprovider
 
-import com.vibbra.timesheet.app.converter.user.UserConverter
+import com.vibbra.timesheet.app.user.converter.UserConverter
 import com.vibbra.timesheet.app.user.postgresql.repository.UserRepository
 import com.vibbra.timesheet.domain.user.dataprovider.CreateUserDataProvider
 import com.vibbra.timesheet.domain.user.model.User

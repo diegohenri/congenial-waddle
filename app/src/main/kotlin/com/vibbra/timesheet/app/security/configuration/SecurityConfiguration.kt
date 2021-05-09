@@ -1,7 +1,7 @@
 package com.vibbra.timesheet.app.security.configuration
 
-import com.vibbra.timesheet.app.security.configuration.jwt.JWTAuthenticationFilter
-import com.vibbra.timesheet.app.security.configuration.jwt.JWTAuthorizationFilter
+import com.vibbra.timesheet.app.security.jwt.filter.JWTAuthenticationFilter
+import com.vibbra.timesheet.app.security.jwt.filter.JWTAuthorizationFilter
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpMethod
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder

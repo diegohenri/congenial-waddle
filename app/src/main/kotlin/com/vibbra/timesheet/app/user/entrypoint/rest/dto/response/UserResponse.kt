@@ -1,4 +1,4 @@
-package com.vibbra.timesheet.app.entrypoint.rest.user.dto.response
+package com.vibbra.timesheet.app.user.entrypoint.rest.dto.response
 
 import java.time.LocalDateTime
 

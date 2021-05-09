@@ -1,4 +1,4 @@
-package com.vibbra.timesheet.app.security.configuration.jwt
+package com.vibbra.timesheet.app.security.jwt.filter
 
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts

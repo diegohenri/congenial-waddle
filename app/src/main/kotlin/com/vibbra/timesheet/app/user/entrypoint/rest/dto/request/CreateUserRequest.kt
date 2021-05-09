@@ -1,4 +1,4 @@
-package com.vibbra.timesheet.app.entrypoint.rest.user.dto.request
+package com.vibbra.timesheet.app.user.entrypoint.rest.dto.request
 
 data class CreateUserRequest(
     var name: String,

@@ -1,4 +1,4 @@
-package com.vibbra.timesheet.app.security.configuration
+package com.vibbra.timesheet.app.security.cipher.configuration
 
 import com.vibbra.timesheet.domain.authentication.dataprovider.CipherConfigurationDataProvider
 import com.vibbra.timesheet.domain.authentication.entity.CipherConfiguration

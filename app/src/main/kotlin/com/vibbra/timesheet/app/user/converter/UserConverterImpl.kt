@@ -1,7 +1,7 @@
-package com.vibbra.timesheet.app.converter.user
+package com.vibbra.timesheet.app.user.converter
 
-import com.vibbra.timesheet.app.entrypoint.rest.user.dto.request.CreateUserRequest
-import com.vibbra.timesheet.app.entrypoint.rest.user.dto.response.UserResponse
+import com.vibbra.timesheet.app.user.entrypoint.rest.dto.request.CreateUserRequest
+import com.vibbra.timesheet.app.user.entrypoint.rest.dto.response.UserResponse
 import com.vibbra.timesheet.app.user.entity.UserEntity
 import com.vibbra.timesheet.domain.user.model.User
 import org.springframework.stereotype.Component

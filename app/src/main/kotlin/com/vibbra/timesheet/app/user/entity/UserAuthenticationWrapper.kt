@@ -1,10 +1,10 @@
-package com.vibbra.timesheet.app.security.configuration
+package com.vibbra.timesheet.app.user.entity
 
 import com.vibbra.timesheet.app.user.entity.UserEntity
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 
-class UserDetailsImpl(val user: UserEntity) : UserDetails {
+class UserAuthenticationWrapper(val user: UserEntity) : UserDetails {
 
     override fun getAuthorities() = mutableListOf<GrantedAuthority>()
 

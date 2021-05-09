@@ -1,11 +1,11 @@
-package com.vibbra.timesheet.app.security.configuration
+package com.vibbra.timesheet.app.security.cipher.encryption
 
 import com.vibbra.timesheet.domain.authentication.usecase.EncryptUserPasswordUseCase
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Component
 
 @Component
-class PasswordEncoderImpl(
+class PasswordEncryptorImpl(
     private val encryption: EncryptUserPasswordUseCase,
 ) : PasswordEncoder {
 

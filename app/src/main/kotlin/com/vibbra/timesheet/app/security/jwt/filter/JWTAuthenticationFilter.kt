@@ -1,10 +1,10 @@
-package com.vibbra.timesheet.app.security.configuration.jwt
+package com.vibbra.timesheet.app.security.jwt.filter
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.vibbra.timesheet.app.entrypoint.rest.user.dto.response.UserResponse
-import com.vibbra.timesheet.app.security.configuration.UserDetailsImpl
-import com.vibbra.timesheet.app.security.response.AuthenticationResponse
+import com.vibbra.timesheet.app.user.entity.UserAuthenticationWrapper
+import com.vibbra.timesheet.app.security.authentication.response.AuthenticationResponse
 import com.vibbra.timesheet.app.user.entity.Credentials
+import com.vibbra.timesheet.app.user.entrypoint.rest.dto.response.UserResponse
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import org.springframework.security.authentication.AuthenticationManager
@@ -37,7 +37,7 @@ class JWTAuthenticationFilter(
     }
 
     override fun successfulAuthentication(request: HttpServletRequest?, response: HttpServletResponse, chain: FilterChain?, authResult: Authentication) {
-        val username = (authResult.principal as UserDetailsImpl).username
+        val username = (authResult.principal as UserAuthenticationWrapper).username
         val token = Jwts.builder()
             .setSubject(username)
             .setExpiration(Date(System.currentTimeMillis() + 60000))
@@ -45,7 +45,7 @@ class JWTAuthenticationFilter(
             .compact()
 
 
-        val a = (authResult.principal as UserDetailsImpl).user
+        val a = (authResult.principal as UserAuthenticationWrapper).user
 
 
         val authenticationResponse = AuthenticationResponse(
