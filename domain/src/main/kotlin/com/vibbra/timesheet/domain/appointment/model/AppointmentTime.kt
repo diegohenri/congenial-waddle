@@ -1,4 +1,4 @@
-package com.vibbra.timesheet.domain.appointment.entity
+package com.vibbra.timesheet.domain.appointment.model
 
 import java.time.LocalDateTime
 

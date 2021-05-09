@@ -1,4 +1,4 @@
-package com.vibbra.timesheet.domain.project.entity
+package com.vibbra.timesheet.domain.project.model
 
 data class Project (
     var title: String? = null,

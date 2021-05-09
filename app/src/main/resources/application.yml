@@ -1,0 +1,21 @@
+server:
+  servlet:
+    context-path: "/timesheet"
+spring:
+  application:
+    name: Vibbra Timesheet
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/vibbra
+    platform: postgres
+    username: vibbra
+    password: vibbra
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: 'update'
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+        format_sql: true
