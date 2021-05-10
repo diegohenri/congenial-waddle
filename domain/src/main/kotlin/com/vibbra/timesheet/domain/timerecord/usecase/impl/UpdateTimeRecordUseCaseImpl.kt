@@ -17,8 +17,8 @@ class UpdateTimeRecordUseCaseImpl(
 ) : UpdateTimeRecordUseCase {
 
     override fun update(newTimeRecord: TimeRecord, user: User, projectId: Long, timeRecordId: Long): TimeRecord {
-        val project = findProject.findById(projectId)
-            ?: throw BusinessException("Project not found with id informed!")
+        val project = findProject.find(projectId, user.id.orEmpty())
+            ?: throw BusinessException("Project not found with id and user informed!")
 
         val actualTimeRecord = findTimeRecordUseCase.findByIdAndUser(timeRecordId, user.id!!)
             ?: throw BusinessException("Time record not found with id and user informed!")

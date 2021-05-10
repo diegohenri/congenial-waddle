@@ -6,4 +6,5 @@ interface FindProjectUseCase {
 
     fun getAll(): List<Project?>
     fun getOne(projectId: Long): Project?
+    fun find(projectCode: Long, userCode: String): Project?
 }

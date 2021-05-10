@@ -53,12 +53,11 @@ A funcionalidade de registro de projeto recebe como parâmetros: titulo, descri�
 
 ##### Descrição da funcionalidade
 A funcionalidade de alteração de projeto recebe como parâmetros: id do projeto a ser alterado, titulo, descrição e lista de usuários participantes
-* RN1 - Validar se o usuário tem acesso ao projeto.
 
 #### Listagem de projetos
 
 ##### Descrição da funcionalidade
-A funcionalidade de listagem de projetos retorna uma lista paginada com todos os projetos
+A funcionalidade de listagem de projetos retorna uma lista com todos os projetos
 
 #### Detalhamento de projeto
 
@@ -68,7 +67,7 @@ A funcionalidade de detalhamento de projeto retorna as informações do projeto
 #### Listagem de horas por projeto
 
 ##### Descrição da funcionalidade
-A funcionalidade de listagem de registro de horas por projeto recebe como parâmetro o id do projeto e retorna uma lista paginada com os registros de hora do projeto.
+A funcionalidade de listagem de registro de horas por projeto recebe como parâmetro o id do projeto e retorna uma lista com os registros de horas.
 
 
 ### Listagem de tarefas
@@ -97,14 +96,14 @@ A funcionalidade de listagem de registro de horas por projeto recebe como parâm
 
 * Desenvolvimento do endpoint de busca de informações do usuário
 
-* Desenvolvimento do endpoint de consulta de projetos com paginação
+* Desenvolvimento do endpoint de consulta de projetos 
 
-* Desenvolvimento do endpoint de consulta detalhada de projeto
+* Desenvolvimento do endpoint de consulta de um único projeto
 
 * Desenvolvimento do endpoint e das regras de registro de projetos
 
 * Desenvolvimento do endpoint e das regras de alteração de projetos
 
-* Desenvolvimento do endpoint de listagem de registros de tempo paginados por projeto
+* Desenvolvimento do endpoint de listagem de registros de tempo por projeto
 
 * Desenvolvimento do endpoint de ateração de registro de tempo

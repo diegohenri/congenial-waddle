@@ -16,4 +16,8 @@ class FindProjectUseCaseImpl(
     override fun getOne(projectId: Long): Project? {
         return findProject.findById(projectId)
     }
+
+    override fun find(projectCode: Long, userCode: String): Project? {
+        return findProject.find(projectCode, userCode)
+    }
 }
