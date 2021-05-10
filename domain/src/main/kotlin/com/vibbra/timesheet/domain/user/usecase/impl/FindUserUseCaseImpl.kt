@@ -7,10 +7,18 @@ import javax.inject.Named
 
 @Named
 class FindUserUseCaseImpl(
-    private val findUserDataProvider : FindUserDataProvider
+    private val findUserDataProvider: FindUserDataProvider
 ) : FindUserUseCase {
 
-    override fun find(user: User): User? {
-        return findUserDataProvider.findByEmailOrLogin(user.email, user.login)
+    override fun findByEmailOrLogin(email: String, login: String): User? {
+        return findUserDataProvider.findByEmailOrLogin(email, login)
+    }
+
+    override fun findByEmail(userEmail: String): User? {
+        return findUserDataProvider.findByEmail(userEmail)
+    }
+
+    override fun findById(userId: String): User? {
+        return findUserDataProvider.findById(userId)
     }
 }

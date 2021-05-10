@@ -18,7 +18,8 @@ class CreateUserUseCaseImpl(
 ) : CreateUserUseCase {
 
     override fun create(user: User): User? {
-        if (findUserUseCase.find(user) != null) {
+
+        if (findUserUseCase.findByEmailOrLogin(user.email, user.login) != null) {
             throw BusinessException("User with email and login already exists.")
         }
 

@@ -47,8 +47,7 @@ class SecurityConfiguration(
         http
             .csrf().disable()
             .authorizeRequests()
-            .antMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
-            .antMatchers(HttpMethod.POST, "/authentication").permitAll()
+            .antMatchers(HttpMethod.POST, "/v1/users").permitAll()
             .anyRequest()
             .authenticated()
             .and()

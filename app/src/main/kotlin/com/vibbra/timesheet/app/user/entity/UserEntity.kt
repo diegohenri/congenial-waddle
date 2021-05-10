@@ -6,15 +6,15 @@ import javax.persistence.Id
 import javax.persistence.Table
 
 @Entity
-@Table
+@Table(name = "user_account")
 data class UserEntity(
 
     @Id
-    var id: String,
+    var id: String? = null,
     val name: String,
     val email: String,
     val login: String,
     var password: String,
-    var createdAt: LocalDateTime,
-    var updatedAt: LocalDateTime
+    var createdAt: LocalDateTime? = null,
+    var updatedAt: LocalDateTime? = null
 )

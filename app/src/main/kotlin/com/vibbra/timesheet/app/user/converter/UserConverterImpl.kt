@@ -2,6 +2,7 @@ package com.vibbra.timesheet.app.user.converter
 
 import com.vibbra.timesheet.app.user.entity.UserEntity
 import com.vibbra.timesheet.app.user.entrypoint.rest.dto.request.CreateUserRequest
+import com.vibbra.timesheet.app.user.entrypoint.rest.dto.request.UpdateUserRequest
 import com.vibbra.timesheet.app.user.entrypoint.rest.dto.response.UserResponse
 import com.vibbra.timesheet.domain.user.model.User
 import org.springframework.stereotype.Component
@@ -45,18 +46,16 @@ class UserConverterImpl : UserConverter {
         }
     }
 
-    override fun toDomain(userEntity: UserEntity?): User? {
-        return userEntity?.let {
-            User(
-                id = it.id,
-                name = it.name,
-                email = it.email,
-                login = it.login,
-                password = it.password,
-                createdAt = it.createdAt,
-                updatedAt = it.updatedAt
-            )
-        }
+    override fun toDomain(userEntity: UserEntity): User {
+        return User(
+            id = userEntity.id,
+            name = userEntity.name,
+            email = userEntity.email,
+            login = userEntity.login,
+            password = userEntity.password,
+            createdAt = userEntity.createdAt,
+            updatedAt = userEntity.updatedAt
+        )
     }
 
     override fun toEntity(userDomain: User): UserEntity {
@@ -71,5 +70,14 @@ class UserConverterImpl : UserConverter {
                 updatedAt = it.updatedAt.takeIf { date -> date != null } ?: LocalDateTime.now(),
             )
         }
+    }
+
+    override fun toDomain(actualUser: User, userRequest: UpdateUserRequest): User {
+        return User(
+            name = userRequest.name,
+            email = userRequest.email,
+            login = actualUser.login,
+            password = actualUser.password
+        )
     }
 }
