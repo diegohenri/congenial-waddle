@@ -17,4 +17,20 @@ class FindProjectDataProviderImpl(
             .findOneByIdAndUsersId(projectCode, userCode)
             ?.let { projectConverter.toDomain(it) }
     }
+
+    override fun findAll(): List<Project?> {
+        return projectRepository
+            .findAll()
+            .map { projectConverter.toDomain(it) }
+    }
+
+    override fun findById(projectId: Long): Project? {
+        return projectRepository
+            .findById(projectId)
+            .takeIf { it.isPresent }
+            ?.get()
+            ?.let {
+                projectConverter.toDomain(it)
+            }
+    }
 }

@@ -4,15 +4,15 @@ import com.vibbra.timesheet.domain.exception.BusinessException
 import com.vibbra.timesheet.domain.project.usecase.FindProjectWithUserUseCase
 import com.vibbra.timesheet.domain.timerecord.dataprovider.CreateTimeRecordDataProvider
 import com.vibbra.timesheet.domain.timerecord.model.TimeRecord
-import com.vibbra.timesheet.domain.timerecord.usecase.TimeRecordUseCase
+import com.vibbra.timesheet.domain.timerecord.usecase.RegisterTimeRecordUseCase
 import com.vibbra.timesheet.domain.user.model.User
 import javax.inject.Named
 
 @Named
-class TimeRecordUseCaseImpl(
+class RegisterTimeRecordUseCaseImpl(
     private val findProjectWithUser: FindProjectWithUserUseCase,
     private val createTimeRecord: CreateTimeRecordDataProvider
-) : TimeRecordUseCase {
+) : RegisterTimeRecordUseCase {
 
     override fun register(time: TimeRecord, user: User, projectCode: Long): TimeRecord {
 

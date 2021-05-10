@@ -25,4 +25,21 @@ class FindUserDataProviderImpl(
             .findAllById(userCodes)
             .map { userConverter.toDomain(it) }
     }
+
+    override fun findByEmail(email: String): User? {
+        return repository
+            .findByEmail(email)
+            ?.let {
+                userConverter.toDomain(it)
+            }
+    }
+
+    override fun findById(userId: String): User? {
+        return repository
+            .findById(userId).takeIf { it.isPresent }
+            ?.get()
+            .let {
+                if (it != null) userConverter.toDomain(it) else null
+            }
+    }
 }

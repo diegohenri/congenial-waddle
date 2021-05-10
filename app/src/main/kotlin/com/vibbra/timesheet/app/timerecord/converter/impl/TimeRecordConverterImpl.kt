@@ -20,6 +20,7 @@ class TimeRecordConverterImpl(
     override fun toEntity(timeRecord: TimeRecord, user: User, project: Project): TimeRecordEntity {
 
         return TimeRecordEntity(
+            id = timeRecord.id,
             user = userConverter.toEntity(user),
             project = projectConverter.toEntity(project),
             startedAt = timeRecord.startedAt,
