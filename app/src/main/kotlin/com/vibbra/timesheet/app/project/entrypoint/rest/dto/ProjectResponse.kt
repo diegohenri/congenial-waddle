@@ -1,6 +1,6 @@
-package com.vibbra.timesheet.domain.project.model
+package com.vibbra.timesheet.app.project.entrypoint.rest.dto
 
-data class Project(
+data class ProjectResponse(
     var id: Long? = null,
     var title: String? = null,
     var description: String? = null

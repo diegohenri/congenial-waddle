@@ -26,7 +26,7 @@ class JWTAuthenticationFilter(
 ) : UsernamePasswordAuthenticationFilter() {
 
     init {
-        setFilterProcessesUrl("/api/v1/authenticate")
+        setFilterProcessesUrl("/v1/authenticate")
     }
 
     override fun attemptAuthentication(request: HttpServletRequest, response: HttpServletResponse?): Authentication? {
@@ -43,7 +43,7 @@ class JWTAuthenticationFilter(
         val userAuth = authResult.principal as UserAuthenticationWrapper
 
         val token = Jwts.builder()
-            .setSubject(userAuth.username)
+            .setSubject(userAuth.user.login)
             .setExpiration(Date(System.currentTimeMillis() + properties.expirationTime))
             .signWith(SignatureAlgorithm.HS512, properties.secret)
             .compact()

@@ -62,7 +62,7 @@ class JWTAuthorizationFilter(
 
     private fun getClaimsToken(token: String): Claims? {
         return try {
-            Jwts.parser().setSigningKey(properties.secret.toByteArray()).parseClaimsJws(token).body
+            Jwts.parser().setSigningKey(properties.secret).parseClaimsJws(token).body
         } catch (e: Exception) {
             null
         }

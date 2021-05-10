@@ -19,4 +19,10 @@ class FindUserDataProviderImpl(
                 userConverter.toDomain(it)
             }
     }
+
+    override fun findAllByIds(userCodes: List<String>): List<User> {
+        return repository
+            .findAllById(userCodes)
+            .map { userConverter.toDomain(it) }
+    }
 }

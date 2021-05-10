@@ -45,8 +45,8 @@ class UserConverterImpl : UserConverter {
         }
     }
 
-    override fun toDomain(userEntity: UserEntity?): User? {
-        return userEntity?.let {
+    override fun toDomain(userEntity: UserEntity): User {
+        return userEntity.let {
             User(
                 id = it.id,
                 name = it.name,

@@ -7,7 +7,7 @@ import com.vibbra.timesheet.domain.user.usecase.CreateUserUseCase
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 
-@RequestMapping("/api/v1/users")
+@RequestMapping("/v1/users")
 @RestController
 class UserController(
     private val createUser: CreateUserUseCase,
@@ -20,6 +20,6 @@ class UserController(
         val user = userConverter.toDomain(userRequest)
         return createUser
             .create(user)
-            .takeIf { it != null }?.let { userConverter.toResponse(it) }
+            ?.let { userConverter.toResponse(it) }
     }
 }

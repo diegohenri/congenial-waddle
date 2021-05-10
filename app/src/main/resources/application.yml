@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: "/timesheet"
+    context-path: "/timesheet/api"
 spring:
   application:
     name: Vibbra Timesheet
@@ -22,7 +22,7 @@ spring:
 security:
   jwt:
     secret: utYvcV0mYXywgmzj
-    expirationTime: 60000
+    expirationTime: 600000
   cipher:
     key: 0z9A0hv/jZfN4csX
     algorithm:  AES
