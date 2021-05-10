@@ -1,14 +1,16 @@
 package com.vibbra.timesheet.app
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan
 import org.springframework.boot.runApplication
-import org.springframework.web.reactive.config.EnableWebFlux
+import org.springframework.context.annotation.ComponentScan
 
-@EnableWebFlux
+
+@ConfigurationPropertiesScan("com.vibbra.timesheet.app.security.configuration")
+@ComponentScan(basePackages = ["com.vibbra.timesheet"])
 @SpringBootApplication
-class Application {
+class Application
 
-    fun main(args: Array<String>) {
-        runApplication<Application>(*args)
-    }
+fun main(args: Array<String>) {
+    runApplication<Application>(*args)
 }
