@@ -20,8 +20,11 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQL9Dialect
         format_sql: true
 security:
+  jwt:
+    secret: utYvcV0mYXywgmzj
+    expirationTime: 60000
   cipher:
-    key: SYCG8XXKHSMH1Z5U
+    key: 0z9A0hv/jZfN4csX
     algorithm:  AES
     operationMode: ECB
     paddingScheme: PKCS5Padding

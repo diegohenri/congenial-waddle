@@ -2,9 +2,10 @@ package com.vibbra.timesheet.app.security.jwt.filter
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.vibbra.timesheet.app.security.authentication.response.AuthenticationResponse
+import com.vibbra.timesheet.app.security.configuration.SecurityConfigurationProperties
+import com.vibbra.timesheet.app.user.converter.UserConverter
 import com.vibbra.timesheet.app.user.entity.Credentials
 import com.vibbra.timesheet.app.user.entity.UserAuthenticationWrapper
-import com.vibbra.timesheet.app.user.entrypoint.rest.dto.response.UserResponse
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import org.springframework.security.authentication.AuthenticationManager
@@ -17,11 +18,12 @@ import javax.servlet.FilterChain
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-
 class JWTAuthenticationFilter(
-    private val authManager: AuthenticationManager
+    private val authManager: AuthenticationManager,
+    private val properties: SecurityConfigurationProperties,
+    private val userConverter: UserConverter,
+    private val objectMapper: ObjectMapper
 ) : UsernamePasswordAuthenticationFilter() {
-
 
     init {
         setFilterProcessesUrl("/api/v1/authenticate")
@@ -29,7 +31,7 @@ class JWTAuthenticationFilter(
 
     override fun attemptAuthentication(request: HttpServletRequest, response: HttpServletResponse?): Authentication? {
         try {
-            val (email, password) = ObjectMapper().readValue(request.inputStream, Credentials::class.java)
+            val (email, password) = objectMapper.readValue(request.inputStream, Credentials::class.java)
             val token = UsernamePasswordAuthenticationToken(email, password)
             return authManager.authenticate(token)
         } catch (e: Exception) {
@@ -38,31 +40,22 @@ class JWTAuthenticationFilter(
     }
 
     override fun successfulAuthentication(request: HttpServletRequest?, response: HttpServletResponse, chain: FilterChain?, authResult: Authentication) {
-        val username = (authResult.principal as UserAuthenticationWrapper).username
+        val userAuth = authResult.principal as UserAuthenticationWrapper
+
         val token = Jwts.builder()
-            .setSubject(username)
-            .setExpiration(Date(System.currentTimeMillis() + 60000))
-            .signWith(SignatureAlgorithm.HS512, "my-secret-token-to-change-in-production")
+            .setSubject(userAuth.username)
+            .setExpiration(Date(System.currentTimeMillis() + properties.expirationTime))
+            .signWith(SignatureAlgorithm.HS512, properties.secret)
             .compact()
-
-
-        val a = (authResult.principal as UserAuthenticationWrapper).user
 
 
         val authenticationResponse = AuthenticationResponse(
             token = token,
-            user = UserResponse(
-                id = a.id,
-                name = a.name,
-                email = a.email,
-                login = a.login,
-                createdAt = a.createdAt,
-                updatedAt = a.updatedAt
-            )
+            user = userConverter.toResponse(userAuth.user)
         )
 
         response.contentType = "application/json"
-        response.writer.write(ObjectMapper().writeValueAsString(authenticationResponse))
+        response.writer.write(objectMapper.writeValueAsString(authenticationResponse))
         response.writer.flush()
     }
 }

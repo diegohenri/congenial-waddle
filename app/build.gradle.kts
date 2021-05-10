@@ -6,6 +6,8 @@ plugins {
     kotlin("jvm") version "1.4.32"
     kotlin("plugin.spring") version "1.4.32"
     kotlin("plugin.jpa") version "1.4.32"
+    kotlin("kapt") version "1.5.0"
+
 }
 
 
@@ -31,6 +33,8 @@ dependencies {
     implementation("org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.jsonwebtoken:jjwt:0.6.0")
+
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
     implementation("org.springdoc:springdoc-openapi-ui:1.5.8")
 

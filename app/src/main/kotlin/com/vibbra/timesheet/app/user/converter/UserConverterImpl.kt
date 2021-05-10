@@ -1,8 +1,8 @@
 package com.vibbra.timesheet.app.user.converter
 
+import com.vibbra.timesheet.app.user.entity.UserEntity
 import com.vibbra.timesheet.app.user.entrypoint.rest.dto.request.CreateUserRequest
 import com.vibbra.timesheet.app.user.entrypoint.rest.dto.response.UserResponse
-import com.vibbra.timesheet.app.user.entity.UserEntity
 import com.vibbra.timesheet.domain.user.model.User
 import org.springframework.stereotype.Component
 import java.time.LocalDateTime
@@ -21,6 +21,19 @@ class UserConverterImpl : UserConverter {
 
     override fun toResponse(userDomain: User?): UserResponse? {
         return userDomain?.let {
+            UserResponse(
+                id = it.id,
+                name = it.name,
+                email = it.email,
+                login = it.login,
+                createdAt = it.createdAt,
+                updatedAt = it.updatedAt
+            )
+        }
+    }
+
+    override fun toResponse(userEntity: UserEntity?): UserResponse? {
+        return userEntity?.let {
             UserResponse(
                 id = it.id,
                 name = it.name,

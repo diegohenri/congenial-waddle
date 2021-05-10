@@ -4,5 +4,5 @@ import com.vibbra.timesheet.app.user.entrypoint.rest.dto.response.UserResponse
 
 data class AuthenticationResponse(
     val token: String,
-    val user: UserResponse
+    val user: UserResponse?
 )

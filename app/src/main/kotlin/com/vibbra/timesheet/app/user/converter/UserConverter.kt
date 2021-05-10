@@ -10,5 +10,6 @@ interface UserConverter {
     fun toDomain(userRequest: CreateUserRequest): User
     fun toDomain(userEntity: UserEntity?): User?
     fun toResponse(userDomain: User?): UserResponse?
+    fun toResponse(userEntity: UserEntity?): UserResponse?
     fun toEntity(userDomain: User) : UserEntity
 }
