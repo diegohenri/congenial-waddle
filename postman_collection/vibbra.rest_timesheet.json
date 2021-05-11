@@ -1,0 +1,407 @@
+{
+	"info": {
+		"_postman_id": "94b16882-31bc-4476-a74a-391655a8609b",
+		"name": "vibbra",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\" : \"username\",\n    \"password\" : \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/timesheet/api/v1/authenticate",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"timesheet",
+								"api",
+								"v1",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"User name\",\n    \"email\" : \"user.email@mail.com\",\n    \"login\" : \"username\",\n    \"password\" : \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/timesheet/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"timesheet",
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"New username\",\n    \"email\" : \"new.username.email@mail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/timesheet/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"timesheet",
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/timesheet/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"timesheet",
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"Nome do projeto\",\n    \"description\" : \"Descrição do projeto\",\n    \"users\" : [\"\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/timesheet/api/v1/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"timesheet",
+								"api",
+								"v1",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/timesheet/api/v1/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"timesheet",
+								"api",
+								"v1",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/timesheet/api/v1/projects/14",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"timesheet",
+								"api",
+								"v1",
+								"projects",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"Primeiro Projeto\",\n    \"description\" : \"Descrição do projeto\",\n    \"users\" : [\"\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/timesheet/api/v1/projects/:projectId",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"timesheet",
+								"api",
+								"v1",
+								"projects",
+								":projectId"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TimeRecord",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"startedAt\" : \"2021-11-24T00:00:00\",\n    \"endedAt\" : \"2021-11-25T00:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/timesheet/api/v1/projects/:projectId/times",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"timesheet",
+								"api",
+								"v1",
+								"projects",
+								":projectId",
+								"times"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/timesheet/api/v1/projects/:projectId/times",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"timesheet",
+								"api",
+								"v1",
+								"projects",
+								":projectId",
+								"times"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqZXNzaWNhIiwiZXhwIjoxNjIwNjc2MjkwfQ.IQxMYlHQ7qddqu64MUC6KpgOb5zX5d3kD06YZEEQTzrYlkWXyTwFMM4NcW8wl9na3iO9dzcaZGXHa4s_VxFKVA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"startedAt\" : \"2021-11-28T00:00:00\",\n    \"endedAt\" : \"2021-11-29T00:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/timesheet/api/v1/projects/:projectId/times/:timeId",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"timesheet",
+								"api",
+								"v1",
+								"projects",
+								":projectId",
+								"times",
+								":timeId"
+							],
+							"variable": [
+								{
+									"key": "projectId",
+									"value": ""
+								},
+								{
+									"key": "timeId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqZXNzaWNhIiwiZXhwIjoxNjIwNjc2MjkwfQ.IQxMYlHQ7qddqu64MUC6KpgOb5zX5d3kD06YZEEQTzrYlkWXyTwFMM4NcW8wl9na3iO9dzcaZGXHa4s_VxFKVA",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
