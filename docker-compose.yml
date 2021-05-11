@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  postgresql:
+    image: postgres:9.5
+    container_name: postgresqltimesheet
+    restart: always
+    environment:
+      - POSTGRES_USER=vibbra
+      - POSTGRES_PASSWORD=vibbra
+      - POSTGRES_DB=vibbra
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5551:5432
+
+volumes:
+  db_data:

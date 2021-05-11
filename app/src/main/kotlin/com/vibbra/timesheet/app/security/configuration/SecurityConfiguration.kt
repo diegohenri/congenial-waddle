@@ -29,6 +29,7 @@ class SecurityConfiguration(
     }
 
     override fun configure(http: HttpSecurity) {
+
         val authManager = authenticationManager()
 
         val authorizationFilter = JWTAuthorizationFilter(
@@ -47,6 +48,11 @@ class SecurityConfiguration(
         http
             .csrf().disable()
             .authorizeRequests()
+            .antMatchers("/v2/api-docs",
+                "/v3/api-docs",
+                "/swagger-resources/**",
+                "/swagger-ui/**",
+                "/swagger-ui.html").permitAll()
             .antMatchers(HttpMethod.POST, "/v1/users").permitAll()
             .anyRequest()
             .authenticated()

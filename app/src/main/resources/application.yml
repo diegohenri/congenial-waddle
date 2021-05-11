@@ -6,7 +6,7 @@ spring:
     name: Vibbra Timesheet
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/vibbra
+    url: jdbc:postgresql://localhost:5551/vibbra
     platform: postgres
     username: vibbra
     password: vibbra
@@ -14,7 +14,7 @@ spring:
     database: POSTGRESQL
     show-sql: true
     hibernate:
-      ddl-auto: 'update'
+      ddl-auto: create
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQL9Dialect

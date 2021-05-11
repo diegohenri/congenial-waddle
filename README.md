@@ -1,4 +1,32 @@
+### Overview sobre o projeto
+API REST para apontamento de horas de usuários em projetos.
 
+O projeto foi desenvolvido na linguagem Kotlin, uma linguagem multiplataforma funcional que compila para a Maquina Virtual Java (JVM)
+
+Foi escolhida um padrão de arquitetura conhecido como Clean Architecture, possui dois módulos principais, um modulo responsável por resolver dependências da aplicação e outro módulo responsável pela execução e garantia de toda a regra de negócio.
+### Instruções de inicialização
+#### Ambiente - Pré-requisitos
+O projeto utiliza o banco de dados relacional PostgreSQL que é disponibilizado pela infraestrutura docker.
+É um pré-requisito que o executor possua o docker e docker-compose instalados.
+
+Também faz-se necessário possuir a versão 11 do java, para  execução do projeto.
+
+Uma collection postman está incluso no projeto, na pasta raiz, com todos os endpoints disponíveis com exemplo de execução.
+
+#### Instruções
+- Execute o comando `docker-compose up -d` para disponibilizar a infraestrutura do banco de dados PostgreSQL
+- Logo após a mensagem de configuramação do docker, execute o comando `./gradlew bootRun` para iniciar a aplicação.
+
+#### Consumindo os endpoints
+
+Um projeto com as collections do postman está disponível na raiz do projeto, com instruçõs para utilização.
+
+- Para criar um usuário, utilize o endpoint "Create" da pasta "User"
+- Para efetuar o login, utilize o endpoint "Login" da pasta Auth com as credenciais craidas no passo anterior.
+- Após receber o token de confirmação de autenticação, copie o token JWT e cole nas configurações de autenticação da pasta principal
+
+
+### Regras de negócio
 #### Login
 
 ##### Descrição da funcionalidade

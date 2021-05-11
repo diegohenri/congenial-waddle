@@ -30,13 +30,12 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-security")
-    implementation("org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.jsonwebtoken:jjwt:0.6.0")
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
-    implementation("org.springdoc:springdoc-openapi-ui:1.5.8")
+    implementation("io.springfox:springfox-boot-starter:3.0.0")
 
     runtimeOnly("org.postgresql:postgresql")
 

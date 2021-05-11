@@ -8,11 +8,15 @@ import com.vibbra.timesheet.app.user.entity.UserAuthenticationWrapper
 import com.vibbra.timesheet.domain.project.usecase.CreateProjectUseCase
 import com.vibbra.timesheet.domain.project.usecase.FindProjectUseCase
 import com.vibbra.timesheet.domain.project.usecase.UpdateProjectUseCase
+import io.swagger.annotations.Api
+import io.swagger.annotations.ApiOperation
+import io.swagger.annotations.Authorization
 import org.springframework.http.HttpStatus
 import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.server.ResponseStatusException
 
+@Api("Project Information")
 @RequestMapping("/v1/projects")
 @RestController
 class ProjectController(
